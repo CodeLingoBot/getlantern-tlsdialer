@@ -268,7 +268,7 @@ func TestVariableTimeouts(t *testing.T) {
 
 func closeAndCountFDs(t *testing.T, conn *tls.Conn, err error, fdc *fdcount.Counter) {
 	if err == nil {
-		if err := conn.Close(); err != nil {
+		if innererr := conn.Close(); innererr != nil {
 			t.Fatalf("Unable to close connection: %v", err)
 		}
 	}
